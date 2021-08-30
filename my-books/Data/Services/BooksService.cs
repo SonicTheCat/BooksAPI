@@ -63,5 +63,15 @@
 
             return bookFromDb;
         }
+
+        public void DeleteBookById(int bookId)
+        {
+            var bookFromDb = this.context.Books.FirstOrDefault(x => x.Id == bookId);
+            if (bookFromDb != null)
+            {
+                this.context.Books.Remove(bookFromDb);
+                this.context.SaveChanges();
+            }
+        }
     }
 }

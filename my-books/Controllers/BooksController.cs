@@ -45,5 +45,12 @@
             var book = this.booksService.UpdateBookById(id, bookVM);
             return this.Ok(book);
         }
+
+        [HttpDelete("delete-book-by-id/{id}")]
+        public IActionResult DeleteBookById(int id)
+        {
+            this.booksService.DeleteBookById(id);
+            return this.Ok();
+        }
     }
 }
