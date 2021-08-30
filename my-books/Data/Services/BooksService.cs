@@ -42,5 +42,26 @@
             this.context.Books.Add(dbBook);
             this.context.SaveChanges();
         }
+
+        public Book UpdateBookById(int bookId, BookVM bookVM)
+        {
+            var bookFromDb = this.context.Books.FirstOrDefault(x => x.Id == bookId);
+            if (bookFromDb != null)
+            {
+                bookFromDb.Title = bookVM.Title;
+                bookFromDb.Author = bookVM.Author;
+                bookFromDb.Description = bookVM.Description;
+                bookFromDb.IsRead = bookVM.IsRead;
+                bookFromDb.DateRead = bookVM.IsRead ? bookVM.DateRead : null;
+                bookFromDb.Rate = bookVM.IsRead ? bookVM.Rate : null;
+                bookFromDb.Genre = bookVM.Genre;
+                bookFromDb.CoverUrl = bookVM.CoverUrl;
+
+                this.context.Update(bookFromDb);
+                this.context.SaveChanges();
+            }
+
+            return bookFromDb;
+        }
     }
 }

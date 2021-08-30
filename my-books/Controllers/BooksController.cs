@@ -38,5 +38,12 @@
 
             return this.Ok();
         }
+
+        [HttpPut("update-book-by-id/{id}")]
+        public IActionResult UpdateBookById(int id, [FromBody] BookVM bookVM)
+        {
+            var book = this.booksService.UpdateBookById(id, bookVM);
+            return this.Ok(book);
+        }
     }
 }
