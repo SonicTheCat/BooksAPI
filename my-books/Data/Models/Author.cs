@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class Publisher
+    public class Author
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
         // Navigation Properties
-        public ICollection<Book> Books{ get; set; }
+        public ICollection<BookAuthor> Books { get; set; }
     }
 }

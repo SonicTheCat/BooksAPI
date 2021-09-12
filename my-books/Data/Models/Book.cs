@@ -1,6 +1,7 @@
 ﻿namespace my_books.Data.Models
 {
     using System;
+    using System.Collections.Generic;
 
     public class Book
     {
@@ -28,5 +29,7 @@
         public int PublisherId { get; set; }
 
         public Publisher Publisher { get; set; }
+
+        public ICollection<BookAuthor> Authors { get; set; }
     }
 }
