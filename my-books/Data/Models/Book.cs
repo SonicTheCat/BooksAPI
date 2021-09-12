@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace my_books.Data.Models
+﻿namespace my_books.Data.Models
 {
+    using System;
+
     public class Book
     {
         public int Id { get; set; }
@@ -26,5 +23,10 @@ namespace my_books.Data.Models
         public string CoverUrl { get; set; }
 
         public DateTime DateAdded { get; set; }
+
+        // Navigation Properties
+        public int PublisherId { get; set; }
+
+        public Publisher Publisher { get; set; }
     }
 }
